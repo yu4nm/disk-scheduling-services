@@ -26,6 +26,11 @@ source env/bin/activate
 ```
 
 ```
+# Before activate allow execution (Windows)
+Set-ExecutionPolicy RemoteSign
+```
+
+```
 # Activate the virtual environment (Windows)
 env\Scripts\activate
 ```
