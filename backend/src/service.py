@@ -1,6 +1,8 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
+
+from fcfs import fcfs
 
 @app.route("/", methods=['GET'])
 def hello():
@@ -30,6 +32,27 @@ def help():
       "description": "This endpoint perform disk scheduling algorithms"
     }
   }
+  
+@app.route("/sched", methods=['POST'])
+def sched():
+  data = request.get_json()
+  algorithm = data.get("algorithm")
+  tracks = data.get("tracks")
+  arm = data.get("arm")
+  requests = data.get("requests")
+  
+  if algorithm == 1:  ## FCFS
+    result = fcfs(arm, requests)
+  else:
+    return jsonify({"error": "Invalid algorithm"}), 400
+  
+  return jsonify({
+    "result": result
+  }), 200
+    
+  
+  
+
   
 if __name__ == "__main__":
   app.run(host="0.0.0.0", port=8000)

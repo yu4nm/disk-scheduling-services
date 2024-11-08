@@ -51,7 +51,6 @@ With python env activated
 python src/service.py
 ```
 
-
 ## Using Dockerfile
 
 ## Unisg Docker Compose
