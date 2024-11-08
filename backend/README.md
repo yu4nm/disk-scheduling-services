@@ -53,4 +53,14 @@ python src/service.py
 
 ## Using Dockerfile
 
+#### Create Dockerfile 
+
+Create a empty file with name `Dockerfile`
+Set image base:
+
+```
+FROM python:3.12.3
+```
+
+
 ## Unisg Docker Compose
