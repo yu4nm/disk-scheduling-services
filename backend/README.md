@@ -53,14 +53,17 @@ python src/service.py
 
 ## Using Dockerfile
 
-#### Create Dockerfile 
-
-Create a empty file with name `Dockerfile`
-Set image base:
+inside backend folder, build the image:
 
 ```
-FROM python:3.12.3
+# Change japeto nickname
+docker build -t japeto/pujbackend .
 ```
 
+Run container with:
+
+```
+docker run --name pujbackend -d -p 0.0.0.0:8000:8000 japeto/pujbackend
+```
 
 ## Unisg Docker Compose
