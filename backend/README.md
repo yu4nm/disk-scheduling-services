@@ -53,17 +53,43 @@ python src/service.py
 
 ## Using Dockerfile
 
-inside backend folder, build the image:
+1. Inside backend folder, build the image:
 
-```
-# Change japeto nickname
-docker build -t japeto/pujbackend .
+```bash
+# Replace japeto with your preferred nickname
+docker build -t japeto/simbackend .
 ```
 
-Run container with:
+2. Run container with:
 
+```bash
+docker run --name simbackend -d -p 0.0.0.0:8000:8000 japeto/simbackend
 ```
-docker run --name pujbackend -d -p 0.0.0.0:8000:8000 japeto/pujbackend
+
+3. Access the backend in your browser:
+
+Open your browser and navigate to:
+
+```plaintext
+http://localhost:8000
 ```
 
 ## Unisg Docker Compose
+
+1. From the project root (where docker-compose.yml is located), execute
+
+```bash
+docker-compose up --build backend_service
+```
+
+2. Access the Services:
+
+- Frontend: http://localhost:3000
+
+Stop the Services:
+
+3. To stop and remove the containers, run:
+
+```bash
+docker-compose down
+```
